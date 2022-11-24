@@ -1,3 +1,17 @@
+:root {
+    --alert-color: #8EDAFC;
+}
+
+img {
+    width: 60px;
+    display: block;
+    border-radius: 50%;
+}
+
+i {
+    margin: 0.5rem;
+}
+
 .bg-grey {
     background-color: #DBDBD1;
 }
@@ -14,4 +28,28 @@
 .main-c {
     height: 94vh;
     background-color: white;
+}
+
+.row-container {
+    width: 100%;
+}
+
+.row-left {
+    width: 40%;
+    background-color: #EAEAEA;
+}
+
+.row, .col {
+    border: 1px solid grey;
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background-color: white;
+    color: #8EDAFC;
+}
+
+.bg-alert {
+    background-color: var(--alert-color);
 }
