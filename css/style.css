@@ -36,6 +36,9 @@ i {
 
 .row-left {
     width: 40%;
+}
+
+.row-left, .row-right {
     background-color: #EAEAEA;
 }
 
@@ -52,4 +55,11 @@ i {
 
 .bg-alert {
     background-color: var(--alert-color);
+}
+
+.msg-container {
+    background-image: url(../img/mine.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 30rem;
 }
