@@ -5,4 +5,13 @@
 .bg-green {
     background-color: #009688;
     padding: 5rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.main-c {
+    height: 94vh;
+    background-color: white;
 }
