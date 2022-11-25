@@ -49,13 +49,18 @@ i {
     padding: 0.8rem;
 }
 
-.sx-col {
+.sx-row {
     width: 500px;
     background-color: white;
 }
   
-.dx-col {
+.dx-row {
     background-image: url(../img/mine.jpg);
     background-position: center;
     background-size: contain;
+}
+
+.footer-icon i {
+    font-size: 1.8rem;
+    padding: 0.5rem;
 }

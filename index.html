@@ -15,7 +15,7 @@
         <div class="bg-banner"></div>
         <div class="main-container d-flex py-3">
             <!-- Row Left -->
-            <div class="sx-col">
+            <div class="sx-row">
                 <div class="d-flex justify-content-between align-items-center banner-color p-2 pb-4 border">
                     <div class="d-flex align-items-center">
                         <div class="me-2">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <!-- Row Right -->
-            <div class="dx-col flex-grow-1">
+            <div class="d-flex flex-column flex-grow-1 overflow-auto">
                 <div class="d-flex justify-content-between align-items-center banner-color p-3 border gap-1">
                     <div class="d-flex">
                         <div class="me-2">
@@ -81,7 +81,19 @@
                     </div>
                 </div>
                 <!-- Text Section -->
-                <div class="bg-secondary"></div>
+                <div class="dx-row d-flex flex-grow-1"></div>
+                <!-- Footer Section -->
+                <div class="d-flex justify-content-between align-items-center p-1 banner-color">
+                    <div class="footer-icon ps-3 me-3">
+                        <a href="#" class="text-secondary"><i class="fa-regular fa-face-smile"></i></a>
+                    </div>
+                    <form class="flex-grow-1" @submit.prevent="sentNewMessage()">
+                        <input class="flex-fill w-100 border-0 rounded p-2 my-2" type="text" placeholder="Scrivi un messaggio" v-model="">
+                    </form>
+                    <div class="footer-icon pe-3 ms-3">
+                        <a href="#" class="text-secondary"><i class="fa-solid fa-microphone"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
       </div>  
