@@ -64,3 +64,23 @@ i {
     font-size: 1.8rem;
     padding: 0.5rem;
 }
+
+.my-msg, .user-msg {
+    min-width: 20%;
+    max-width: 50%;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.my-msg {
+    align-self: flex-end;
+    background-color: lightgreen;
+    margin-right: 3.5rem;
+}
+  
+.user-msg {
+    align-self: flex-start;
+    background-color: white;
+    margin-left: 3.5rem;
+}
