@@ -1,65 +1,61 @@
 :root {
-    --alert-color: #8EDAFC;
+    --bg-body-color: #DDDBD0;
+    --header-color:#009688;
+    --alert-color: #8edafc;
+    --banner-color: #eaeaea;
 }
 
 img {
-    width: 60px;
+    width: 50px;
     display: block;
     border-radius: 50%;
 }
 
 i {
-    margin: 0.5rem;
+    font-size: 1.2rem;
 }
 
-.bg-grey {
-    background-color: #DBDBD1;
-}
-
-.bg-green {
-    background-color: #009688;
-    padding: 5rem;
+.bg-banner {
     position: absolute;
     top: 0;
     width: 100%;
     z-index: -1;
+    height: 150px;
+    background-color: var(--header-color);
 }
 
-.main-c {
-    height: 94vh;
-    background-color: white;
+.main-container {
+    width: 90vw;
+    height: 100vh;
+    margin: auto;
 }
 
-.row-container {
-    width: 100%;
-}
-
-.row-left {
-    width: 40%;
-}
-
-.row-left, .row-right {
-    background-color: #EAEAEA;
-}
-
-.row, .col {
-    border: 1px solid grey;
-}
-
-.alert-icon {
-    font-size: 1.5rem;
-    border-radius: 50%;
-    background-color: white;
-    color: #8EDAFC;
+.bg-grey {
+    background-color: var(--bg-body-color);
 }
 
 .bg-alert {
     background-color: var(--alert-color);
 }
 
-.msg-container {
+.banner-color {
+    background-color: var(--banner-color);
+}
+
+.icon-alert {
+    background-color: white;
+    border-radius: 50%;
+    color: var(--alert-color);
+    padding: 0.8rem;
+}
+
+.sx-col {
+    width: 500px;
+    background-color: white;
+}
+  
+.dx-col {
     background-image: url(../img/mine.jpg);
     background-position: center;
-    background-size: cover;
-    padding-bottom: 30rem;
+    background-size: contain;
 }
