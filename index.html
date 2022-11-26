@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <!-- Text Section -->
-                <div class="dx-row d-flex flex-column flex-grow-1 overflow-auto pt-5">
+                <div class="dx-row d-flex flex-column flex-grow-1 pt-5">
                     <div v-if="selectedUser !== null" v-for="message in selectedUser.messages"
                     :class="message.status==='sent' ? 'my-msg' : 'user-msg'">{{message.message}} <small class="msg-date ps-2">{{message.date}}</small></div>
                 </div>
