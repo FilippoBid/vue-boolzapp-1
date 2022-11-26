@@ -91,4 +91,5 @@ i {
 
 .user-hover:hover {
     background-color: lightgray;
+    cursor: pointer;
 }
