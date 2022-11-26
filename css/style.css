@@ -58,7 +58,6 @@ i {
     background-image: url(../img/mine.jpg);
     background-position: center;
     background-size: contain;
-    overflow-y: scroll;
 }
 
 .footer-icon i {
@@ -93,4 +92,8 @@ i {
 .user-hover:hover {
     background-color: lightgray;
     cursor: pointer;
+}
+
+.scrollbar-y {
+    overflow-y: scroll;
 }

@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <!-- Users Container sx -->
-                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 overflow-auto">
+                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 scrollbar-y">
                     <div @click="selectedUser = users" v-for="(users,i) in usersList" :key="i + users.name">
                         <div class="d-flex justify-content-between my-2 pb-2 border-bottom user-hover">
                             <div class="d-flex">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <!-- Text Section -->
-                <div class="dx-row d-flex flex-column flex-grow-1 pt-5">
+                <div class="dx-row d-flex flex-column flex-grow-1 pt-5 scrollbar-y">
                     <div v-if="selectedUser !== null" v-for="message in selectedUser.messages"
                     :class="message.status==='sent' ? 'my-msg' : 'user-msg'">{{message.message}} <small class="msg-date ps-2">{{message.date}}</small></div>
                 </div>
