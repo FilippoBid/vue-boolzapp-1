@@ -2,6 +2,12 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      messageArray: [
+        {
+          newMessage: "",
+        },
+      ],
+      selectedUser: null,
       usersList: [
         {
           name: "Michele",
@@ -115,7 +121,7 @@ const app = createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Hai portato a spasso il cane?",
+              message: "Hai portato a spasso il gatto?",
               status: "sent",
             },
             {
@@ -125,7 +131,7 @@ const app = createApp({
             },
             {
               date: "10/01/2020 16:15:22",
-              message: "Tutto fatto!",
+              message: "Ci penso io!",
               status: "received",
             },
           ],
@@ -137,7 +143,7 @@ const app = createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Hai portato a spasso il cane?",
+              message: "Hai portato a spasso il topo?",
               status: "sent",
             },
             {
@@ -147,7 +153,7 @@ const app = createApp({
             },
             {
               date: "10/01/2020 16:15:22",
-              message: "Tutto fatto!",
+              message: "Non dire altro!",
               status: "received",
             },
           ],
@@ -159,7 +165,7 @@ const app = createApp({
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Hai portato a spasso il cane?",
+              message: "Hai portato a spasso il lupo?",
               status: "sent",
             },
             {
@@ -169,12 +175,30 @@ const app = createApp({
             },
             {
               date: "10/01/2020 16:15:22",
-              message: "Tutto fatto!",
+              message: "Allora, calma!",
               status: "received",
             },
           ],
         },
       ],
     };
+  },
+  methods: {
+    sendText() {
+      this.selectedUser.messages.push({
+        date: "10/01/2020 16:15:22",
+        message: this.messageArray.newMessage,
+        status: "sent",
+      });
+      this.messageArray.newMessage = "";
+      setTimeout(this.sendOk, 1000);
+    },
+    sendOk() {
+      this.selectedUser.messages.push({
+        date: "10/01/2020 16:15:22",
+        message: "Ok.",
+        status: "received",
+      });
+    },
   },
 }).mount("#app");

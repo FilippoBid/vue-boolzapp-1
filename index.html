@@ -46,8 +46,8 @@
                 </div>
                 <!-- Users Container sx -->
                 <div class="d-flex flex-column flex-grow-1 flex-shrink-0 overflow-auto">
-                    <div v-for="(users,i) in usersList">
-                        <div class="d-flex justify-content-between my-2 pb-2 border-bottom">
+                    <div @click="selectedUser = users" v-for="(users,i) in usersList" :key="i + users.name">
+                        <div class="d-flex justify-content-between my-2 pb-2 border-bottom user-hover">
                             <div class="d-flex">
                                 <div class="image px-2">
                                     <img v-bind:src="users.avatar" alt="">
@@ -65,13 +65,16 @@
             <!-- Row Right -->
             <div class="d-flex flex-column flex-grow-1">
                 <div class="d-flex justify-content-between align-items-center banner-color p-3 border gap-1">
-                    <div class="d-flex">
-                        <div class="me-2">
-                            <img src="img/avatar_1.jpg" alt="">
-                        </div>
-                        <div>
-                            <div class="fw-semibold">Michele</div>
-                            <div class="text-secondary">Ultimo accesso oggi alle 12:00</div>
+                    <div class="p-2 pb-3 fw-semibold" v-if="selectedUser===null">Seleziona una chat</div>
+                    <div v-else>
+                        <div class="d-flex">
+                            <div class="me-2">
+                                <img v-bind:src="selectedUser.avatar" alt="">
+                            </div>
+                            <div>
+                                <div class="fw-semibold">{{selectedUser.name}}</div>
+                                <div class="text-secondary">Ultimo accesso oggi alle 12:00</div>
+                            </div>
                         </div>
                     </div>
                     <div class="icons-container-dx d-flex gap-3 pe-2">
@@ -81,18 +84,17 @@
                     </div>
                 </div>
                 <!-- Text Section -->
-                <div class="dx-row d-flex flex-column flex-grow-1 overflow-auto">
-                    <div class="my-msg mt-5">Hai portato a spasso il cane?</div>
-                    <div class="my-msg">Ricordati di stenere i panni</div>
-                    <div class="user-msg mt-5">Tutto fatto!</div>
+                <div class="dx-row d-flex flex-column flex-grow-1 overflow-auto pt-5">
+                    <div v-if="selectedUser !== null" v-for="message in selectedUser.messages"
+                    :class="message.status==='sent' ? 'my-msg' : 'user-msg'">{{message.message}} <small class="msg-date ps-2">{{message.date}}</small></div>
                 </div>
                 <!-- Footer Section -->
                 <div class="d-flex justify-content-between align-items-center p-1 banner-color">
                     <div class="footer-icon ps-3 me-3">
                         <a href="#" class="text-secondary"><i class="fa-regular fa-face-smile"></i></a>
                     </div>
-                    <form class="flex-grow-1" @submit.prevent="sentNewMessage()">
-                        <input class="flex-fill w-100 border-0 rounded p-2 my-2" type="text" placeholder="Scrivi un messaggio" v-model="">
+                    <form class="flex-grow-1" @submit.prevent="sendText()">
+                        <input class="flex-fill w-100 border-0 rounded p-2 my-2" type="text" placeholder="Scrivi un messaggio" v-model="messageArray.newMessage">
                     </form>
                     <div class="footer-icon pe-3 ms-3">
                         <a href="#" class="text-secondary"><i class="fa-solid fa-microphone"></i></a>

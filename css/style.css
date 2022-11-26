@@ -84,3 +84,11 @@ i {
     background-color: white;
     margin-left: 3.5rem;
 }
+
+.msg-date {
+    color: grey;
+}
+
+.user-hover:hover {
+    background-color: lightgray;
+}
