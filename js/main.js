@@ -219,7 +219,7 @@ const app = createApp({
         }
       });
     }, */
-    orderChat (userChat){
+/*     orderChat (userChat){
       this.userList.forEach(user => {
         if (user.id == userChat.id){
           user.order = 1;
@@ -230,7 +230,7 @@ const app = createApp({
       this.userList.sort((a, b) => {
         return a.order - b.order;
       });
-    },
+    }, */
     onDeleteMessage(i,userChat){
       this.usersList.forEach(user => {
         if (user.id == userChat.id){

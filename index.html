@@ -57,10 +57,10 @@
                                 </div>
                                 <div>
                                     <div class="fw-semibold">{{users.name}}</div>
-                                    <div class="small text-secondary">ultimo messaggio inviato</div>
+                                    <div class="small text-secondary">{{users.messages[0].message}}</div>
                                 </div>
                             </div>
-                            <div class="small text-secondary pe-2">12:00</div>
+                            <div class="small text-secondary pe-2">{{users.messages[0].date}}</div>
                         </div>
                     </div>
                 </div>
