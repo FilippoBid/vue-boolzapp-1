@@ -9,29 +9,7 @@ const app = createApp({
       ],
       selectedUser: null,
       search: "",
-      user: {
-        id: 1,
-        name: "Michele",
-        avatar: "img/avatar_1.jpg",
-        visible: true,
-        messages: [
-          {
-            date: "10/01/2020 15:30:55",
-            message: "Hai portato a spasso il cane?",
-            status: "sent",
-          },
-          {
-            date: "10/01/2020 15:50:00",
-            message: "Ricordati di dargli da mangiare",
-            status: "sent",
-          },
-          {
-            date: "10/01/2020 16:15:22",
-            message: "Tutto fatto!",
-            status: "received",
-          },
-        ],
-      },
+      dateTime : luxon.DateTime,
       usersList: [
         {
           id: 1,
@@ -218,7 +196,7 @@ const app = createApp({
   methods: {
     sendText() {
       this.selectedUser.messages.push({
-        date: "10/01/2020 16:15:22",
+        date: this.dateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
         message: this.messageArray.newMessage,
         status: "sent",
       });
@@ -227,12 +205,12 @@ const app = createApp({
     },
     sendOk() {
       this.selectedUser.messages.push({
-        date: "10/01/2020 16:15:22",
+        date: this.dateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
         message: "Ok.",
         status: "received",
       });
     },
-    searchUserChat(){
+/*     searchUserChat(){
       this.usersList.forEach(user => {
         if(user.name.toLowerCase().includes(this.search.toLowerCase())){
           user.visible = true;
@@ -240,7 +218,7 @@ const app = createApp({
           user.visible = false;
         }
       });
-    },
+    }, */
     orderChat (userChat){
       this.userList.forEach(user => {
         if (user.id == userChat.id){
@@ -263,6 +241,13 @@ const app = createApp({
           }
           this.user = user;
         }
+      });
+    },
+  },
+  computed: {
+    searchUserChat(){
+      return this.usersList.filter(user =>{
+        return user.name.toLowerCase().includes(this.search.toLowerCase())
       });
     },
   },
