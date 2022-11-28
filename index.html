@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
 </head>
 <body class="bg-grey">
@@ -57,10 +58,12 @@
                                 </div>
                                 <div>
                                     <div class="fw-semibold">{{users.name}}</div>
-                                    <div class="small text-secondary">{{users.messages[0].message}}</div>
+                                    <div v-if="users.messages.length > 0" class="small text-secondary">{{users.messages[users.messages.length -1].message}}</div>
+                                    <div v-else>{{""}}</div>
                                 </div>
                             </div>
-                            <div class="small text-secondary pe-2">{{users.messages[0].date}}</div>
+                            <div v-if="users.messages.length > 0"class="small text-secondary pe-2">{{users.messages[users.messages.length -1].date}}</div>
+                            <div v-else>{{""}}</div>
                         </div>
                     </div>
                 </div>
@@ -88,9 +91,16 @@
                 </div>
                 <!-- Text Section -->
                 <div class="dx-row d-flex flex-column flex-grow-1 pt-5 scrollbar-y">
-                    <div v-if="selectedUser !== null" v-for="message in selectedUser.messages"
+                    <div v-if="selectedUser !== null" v-for="message,i in selectedUser.messages"
                     :class="message.status==='sent' ? 'my-msg' : 'user-msg'">{{message.message}} <small class="msg-date ps-2">{{message.date}}</small>
-                    <span class="ms-3" @click="onDeleteMessage(i,userChat)"><i class="fa-solid fa-chevron-down"></i></span></div>
+                    <span class="ms-3"><div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu p-1">
+                            <li @click="onInfoMessage(i)">Info messaggio</li>
+                            <li @click="onDeleteMessage(i)">Cancella messaggio</li>
+                        </ul>
+                      </div>
+                    </div>
                 </div>
                 <!-- Footer Section -->
                 <div class="d-flex justify-content-between align-items-center p-1 banner-color">

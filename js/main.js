@@ -12,7 +12,6 @@ const app = createApp({
       dateTime : luxon.DateTime,
       usersList: [
         {
-          id: 1,
           name: "Michele",
           avatar: "img/avatar_1.jpg",
           visible: true,
@@ -35,7 +34,6 @@ const app = createApp({
           ],
         },
         {
-          id: 2,
           name: "Fabio",
           avatar: "img/avatar_2.jpg",
           visible: true,
@@ -52,13 +50,12 @@ const app = createApp({
             },
             {
               date: "20/03/2020 16:35:00",
-              message: "Mi piacerebbe ma devo andare a fare la spesa.",
+              message: "Scusa, devo fare la spesa.",
               status: "received",
             },
           ],
         },
         {
-          id: 3,
           name: "Samuele",
           avatar: "img/avatar_3.jpg",
           visible: true,
@@ -81,7 +78,6 @@ const app = createApp({
           ],
         },
         {
-          id: 4,
           name: "Luisa",
           avatar: "img/avatar_4.jpg",
           visible: true,
@@ -99,7 +95,6 @@ const app = createApp({
           ],
         },
         {
-          id: 5,
           name: "Alessandro L.",
           avatar: "img/avatar_5.jpg",
           visible: true,
@@ -122,7 +117,6 @@ const app = createApp({
           ],
         },
         {
-          id: 6,
           name: "Claudia",
           avatar: "img/avatar_6.jpg",
           visible: true,
@@ -145,7 +139,6 @@ const app = createApp({
           ],
         },
         {
-          id: 7,
           name: "Federico",
           avatar: "img/avatar_7.jpg",
           visible: true,
@@ -168,7 +161,6 @@ const app = createApp({
           ],
         },
         {
-          id: 8,
           name: "Davide",
           avatar: "img/avatar_8.jpg",
           visible: true,
@@ -210,6 +202,12 @@ const app = createApp({
         status: "received",
       });
     },
+    onDeleteMessage(index) {
+      this.selectedUser.messages.splice(index, 1);
+    },
+    onInfoMessage(index) {
+      alert("Data e ora dell'ultimo messaggio: " + this.selectedUser.messages[index].date);
+    },
 /*     searchUserChat(){
       this.usersList.forEach(user => {
         if(user.name.toLowerCase().includes(this.search.toLowerCase())){
@@ -219,30 +217,6 @@ const app = createApp({
         }
       });
     }, */
-/*     orderChat (userChat){
-      this.userList.forEach(user => {
-        if (user.id == userChat.id){
-          user.order = 1;
-        } else {
-          user.order += 1;
-        }
-      });
-      this.userList.sort((a, b) => {
-        return a.order - b.order;
-      });
-    }, */
-    onDeleteMessage(i,userChat){
-      this.usersList.forEach(user => {
-        if (user.id == userChat.id){
-          if(user.messages[i].status == "sent"){
-            user.message[i].message = "Il tuo messaggio è stato eliminato";
-          } else {
-            user.messagges[i].message = "Il messaggio  è stato eliminato";
-          }
-          this.user = user;
-        }
-      });
-    },
   },
   computed: {
     searchUserChat(){
